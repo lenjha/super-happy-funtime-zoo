@@ -13,7 +13,7 @@
 
 [ ]  Options to view ALL animals, only young animals( < years old) or mature animals ( > 2 years old)
 
-[ ]  Click an animal to edit its name, age, or caretakers
+[X]  Click an animal to edit its name, age, or caretakers
 
 Uses a model to organize data
 README.md

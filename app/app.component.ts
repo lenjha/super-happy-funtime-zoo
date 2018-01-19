@@ -9,17 +9,41 @@ import { Component } from '@angular/core';
     <h3>{{currentFocus}}</h3>
 
     <ul>
-      <li [class]="dietColor(currentAnimal)" (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals">"{{currentAnimal.name}}" the {{currentAnimal.species}} is present!
-      <button (click)="editAnimal()"> Edit!</button></li>
+      <li [class]="dietColor(currentAnimal)" (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals"> "{{currentAnimal.name}}" the {{currentAnimal.species}}
+      <button (click)="editAnimal(currentAnimal)"> Edit!</button></li>
     </ul>
-    <div>
-    <h3>{{selectedAnimal.name}}</h3>
-    <p>{{selectedAnimal.species}}</p>
-    <h3>Edit Animal</h3>
-    <label>Species</label>
-    <input [(ngModel)]="selectedAnimal.species">
-    </div>
+    <hr>
 
+    <div *ngIf="selectedAnimal">
+      <h4>Name: {{selectedAnimal.name}}</h4>
+      <p> Species: {{selectedAnimal.species}}</p>
+      <p>Age (in years): {{selectedAnimal.age}}</p>
+      <p>Diet: {{selectedAnimal.diet}}</p>
+      <p>Zoo Location: {{selectedAnimal.zooLocation}}</p>
+      <p># of Caretakers: {{selectedAnimal.numberOfCaretakersNeeded}}</p>
+      <p>Sex: {{selectedAnimal.sex}}</p>
+      <p>Like: {{selectedAnimal.like}}</p>
+      <p>Dislike: {{selectedAnimal.dislike}}</p>
+
+      <h3>Edit Animal</h3>
+      <label>Name</label>
+      <input [(ngModel)]="selectedAnimal.name"><br>
+      <label>Species</label>
+      <input [(ngModel)]="selectedAnimal.species"><br>
+      <label>Age</label>
+      <input [(ngModel)]="selectedAnimal.age"><br>
+      <label>Zoo Location</label>
+      <input [(ngModel)]="selectedAnimal.zooLocation"><br>
+      <label># of Caretakers</label>
+      <input [(ngModel)]="selectedAnimal.numberOfCaretakersNeeded"><br>
+      <label>Sex</label>
+      <input [(ngModel)]="selectedAnimal.sex"><br>
+      <label>Like</label>
+      <input [(ngModel)]="selectedAnimal.like"><br>
+      <label>Dislike</label>
+      <input [(ngModel)]="selectedAnimal.dislike"><br>
+      <button (click)="finishedEditing()">Finished!</button>
+    </div>
   </div>
   `
 })
@@ -40,10 +64,10 @@ export class AppComponent {
     // new Animal("Proboscis Monkey", "Innuendo", 7, "Omnivore", "Danger Zone", 5, "male", "food", "people"),
     // new Animal("Black-Capped Chickadee", "Rooster", 2, "Omnivore", "The Mountains", 5, "female", "sunflower seeds", "people"),
   ];
-  selectedAnimal: Animal = this.animals[0];
+  selectedAnimal = null;
 
-  editAnimal(){
-    console.log("click!")
+  editAnimal(clickedAnimal){
+    this.selectedAnimal = clickedAnimal;
   }
 
   animalClicked(clickedAnimal: Animal){
@@ -58,6 +82,10 @@ export class AppComponent {
     } else {
       return "herbivore-color";
     }
+  }
+
+  finishedEditing(){
+    this.selectedAnimal = null;
   }
 }
 
