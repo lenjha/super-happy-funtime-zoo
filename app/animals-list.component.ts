@@ -1,18 +1,27 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Animal } from './animal.model';
 
 @Component({
     selector: 'animals-list',
     template: `
     <ul>
-      <li [class]="dietColor(currentAnimal)" (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals"> "{{currentAnimal.name}}" the {{currentAnimal.species}}
-      <button (click)="editAnimal(currentAnimal)"> Edit!</button></li>
+      <li (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals"> "{{currentAnimal.name}}" the {{currentAnimal.species}}
+      <button (click)="editButtonClicked(currentAnimal)"> Edit!</button></li>
     </ul>
     `
 })
 
+//[class]="dietColor(currentAnimal)"
+
+
+
 export class AnimalsListComponent {
   @Input() childAnimalList: Animal[];
+  @Output() clickSender = new EventEmitter();
+
+  editButtonClicked(animalToEdit: Animal) {
+    this.clickSender.emit(animalToEdit);
+  }
 
   // animalClicked(clickedAnimal: Animal){
   //   console.log(clickedAnimal);
