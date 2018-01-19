@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AnimalsListComponent } from './animals-list.component'
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,7 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>Zoo is Ready!</h1>
     <h3>{{currentFocus}}</h3>
-    <ul>
-      <li *ngFor="let thisAnimal of animals">{{thisAnimal.species}} is named "{{thisAnimal.name}}"</li>
-    </ul>
+    <animals-list></animals-list>
   </div>
   `
 })
@@ -16,14 +15,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   currentFocus: string = 'Current Beasts';
 
-  animals: Animal[] = [
-    new Animal("shrimp", "Seu"),
-    new Animal("shark", "Sano"),
-    new Animal("chickadee", "Chickadee"),
-  ];
+  editAnimal(){
+    console.log("edit!");
+  }
 
-}
 
-export class Animal {
-  constructor(public species: string, public name: string) { }
+
 }
