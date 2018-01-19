@@ -1,0 +1,31 @@
+[ ]  Able to log a new animal by submitting a form containing...
+        Species:
+        Name:
+        Age:
+        Diet:
+        Zoo Location:
+        Number of Needed Caretakers:
+        Sex:
+        Like:
+        Dislike:
+
+[ ]  View a list of animals logged
+
+[ ]  Options to view ALL animals, only young animals( < years old) or mature animals ( > 2 years old)
+
+[ ]  Click an animal to edit its name, age, or caretakers
+
+Uses a model to organize data
+README.md
+
+
+
+FURTHER EXPLORATION
+
+[ ]  Build out Animal Model
+[ ]  SASS styling
+[ ]  Display total of caretakers needed in a day
+[ ]  Add property recording when each animal was admitted - user could enter date/time, OR app can generate a timestamp
+[ ]  Differentiate betwixt species
+[ ]  Average the total age for each species
+[ ]  Show animals based on diet type
