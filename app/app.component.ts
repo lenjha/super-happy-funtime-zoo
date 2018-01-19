@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <h1>Zodiac Zoo</h1>
+  <div class="container">
+    <h1>Zoo is Ready!</h1>
+  </div>
   `
 })
 
