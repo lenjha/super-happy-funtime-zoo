@@ -5,3 +5,13 @@ body {
 
 .one-moment-please {
 }
+
+.carnivore-color {
+  background: salmon;
+}
+.omnivore-color {
+  background: lightyellow;
+}
+.herbivore-color {
+  background: lightgreen;
+}

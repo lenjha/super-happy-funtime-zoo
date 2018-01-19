@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
     <h3>{{currentFocus}}</h3>
 
     <ul>
-      <li (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals">"{{currentAnimal.name}}" the {{currentAnimal.species}} is present!
+      <li [class]="dietColor(currentAnimal)" (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals">"{{currentAnimal.name}}" the {{currentAnimal.species}} is present!
       <button (click)="editAnimal()"> Edit!</button></li>
     </ul>
     <div>
@@ -48,6 +48,16 @@ export class AppComponent {
 
   animalClicked(clickedAnimal: Animal){
     console.log(clickedAnimal);
+  }
+
+  dietColor(currentAnimal){
+    if (currentAnimal.diet === "Carnivore"){
+      return "carnivore-color";
+    } else if (currentAnimal.diet === "Omnivore"){
+      return "omnivore-color";
+    } else {
+      return "herbivore-color";
+    }
   }
 }
 
