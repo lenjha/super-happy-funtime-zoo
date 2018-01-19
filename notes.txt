@@ -9,7 +9,7 @@
         Like:
         Dislike:
 
-[ ]  View a list of animals logged
+[X]  View a list of animals logged
 
 [ ]  Options to view ALL animals, only young animals( < years old) or mature animals ( > 2 years old)
 
