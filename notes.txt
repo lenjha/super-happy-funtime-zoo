@@ -15,14 +15,14 @@
 
 [X]  Click an animal to edit its name, age, or caretakers
 
-Uses a model to organize data
+[X] Uses a model to organize data
 README.md
 
 
 
 FURTHER EXPLORATION
 
-[ ]  Build out Animal Model
+[X]  Build out Animal Model
 [ ]  SASS styling
 [ ]  Display total of caretakers needed in a day
 [ ]  Add property recording when each animal was admitted - user could enter date/time, OR app can generate a timestamp

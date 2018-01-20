@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AnimalsListComponent } from './animals-list.component'
+import { AnimalsListComponent } from './animals-list.component';
 import { Animal } from './animal.model';
 
 @Component({
@@ -9,38 +9,10 @@ import { Animal } from './animal.model';
     <h1>Zoo is Ready!</h1>
     <h3>{{currentFocus}}</h3>
     <hr>
-    <animals-list [childAnimalList]="masterAnimalsList"></animals-list>
-
-    <div *ngIf="selectedAnimal">
-      <h4>Name: {{selectedAnimal.name}}</h4>
-      <p> Species: {{selectedAnimal.species}}</p>
-      <p>Age (in years): {{selectedAnimal.age}}</p>
-      <p>Diet: {{selectedAnimal.diet}}</p>
-      <p>Zoo Location: {{selectedAnimal.zooLocation}}</p>
-      <p># of Caretakers: {{selectedAnimal.numberOfCaretakersNeeded}}</p>
-      <p>Sex: {{selectedAnimal.sex}}</p>
-      <p>Like: {{selectedAnimal.like}}</p>
-      <p>Dislike: {{selectedAnimal.dislike}}</p>
-
-      <h3>Edit Animal</h3>
-      <label>Name</label>
-      <input [(ngModel)]="selectedAnimal.name"><br>
-      <label>Species</label>
-      <input [(ngModel)]="selectedAnimal.species"><br>
-      <label>Age</label>
-      <input [(ngModel)]="selectedAnimal.age"><br>
-      <label>Zoo Location</label>
-      <input [(ngModel)]="selectedAnimal.zooLocation"><br>
-      <label># of Caretakers</label>
-      <input [(ngModel)]="selectedAnimal.numberOfCaretakersNeeded"><br>
-      <label>Sex</label>
-      <input [(ngModel)]="selectedAnimal.sex"><br>
-      <label>Like</label>
-      <input [(ngModel)]="selectedAnimal.like"><br>
-      <label>Dislike</label>
-      <input [(ngModel)]="selectedAnimal.dislike"><br>
-      <button (click)="finishedEditing()">Finished!</button>
-    </div>
+    <animals-list [childAnimalList]="masterAnimalsList" (clickSender)="editAnimal($event)"></animals-list>
+    <hr>
+    <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
+    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
   </div>
   `
 })
@@ -50,7 +22,7 @@ export class AppComponent {
   selectedAnimal = null;
 
   masterAnimalsList: Animal[] = [
-    new Animal("Pomeranian", "Ameribo Vespoochi", 2, "Carnivore", "Canine Carnival", 5, "male", "food", "people"),
+    new Animal("Pomeranian", "Ameribo Vespoochi", 2, "Carnivore", "Canine Carnival", 5, "male", "food", "loud noises"),
     new Animal("European Central Boar", "Piggi Longsmockings", 1, "Omnivore", "The Boar Moors", 5, "female", "food", "people"),
     new Animal("Siberian Chipmunk", "Radimir Putin", 3, "Omnivore", "Rodent Roundabout", 5, "male", "food", "people"),
     new Animal("Holstein Friesian Cattle", "Joan Henrietta", 1, "Herbivore", "Farmhand Farmy's Fun Farm", 5, "female", "food", "people"),
@@ -70,5 +42,9 @@ export class AppComponent {
 
   finishedEditing(){
     this.selectedAnimal = null;
+  }
+
+  addAnimal(newAnimalFromChild: Animal){
+    this.masterAnimalsList.push(newAnimalFromChild);
   }
 }
