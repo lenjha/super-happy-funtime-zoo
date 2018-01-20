@@ -5,15 +5,13 @@ import { Animal } from './animal.model';
     selector: 'animals-list',
     template: `
     <ul>
-      <li (click)="animalClicked(currentAnimal)" *ngFor="let currentAnimal of animals"> "{{currentAnimal.name}}" the {{currentAnimal.species}}
-      <button (click)="editButtonClicked(currentAnimal)"> Edit!</button></li>
+      <div *ngFor="let currentAnimal of animals" (click)="animalClicked(currentAnimal)">
+      <h3>"{{currentAnimal.name}}" the {{currentAnimal.species}}</h3>
+      <h5>{{currentAnimal.zooLocation}}</h5>
+      <button (click)="editButtonClicked(currentAnimal)"> Edit!</button></div>
     </ul>
     `
 })
-
-//[class]="dietColor(currentAnimal)"
-
-
 
 export class AnimalsListComponent {
   @Input() childAnimalList: Animal[];
@@ -23,9 +21,9 @@ export class AnimalsListComponent {
     this.clickSender.emit(animalToEdit);
   }
 
-  // animalClicked(clickedAnimal: Animal){
-  //   console.log(clickedAnimal);
-  // }
+  animalClicked(clickedAnimal: Animal){
+    console.log(clickedAnimal);
+  }
 
   dietColor(currentAnimal){
     if (currentAnimal.diet === "Carnivore"){
