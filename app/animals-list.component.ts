@@ -5,7 +5,7 @@ import { Animal } from './animal.model';
     selector: 'animals-list',
     template: `
     <ul>
-      <div *ngFor="let currentAnimal of childAnimalList" (click)="animalClicked(currentAnimal)">
+      <div *ngFor="let currentAnimal of childAnimalList">
       <h4>"{{currentAnimal.name}}" the {{currentAnimal.species}}</h4>
       <h5>{{currentAnimal.zooLocation}}</h5>
       <p>{{currentAnimal.age}} years old, {{currentAnimal.diet}} requiring {{currentAnimal.numberOfCaretakersNeeded}} caretaker(s)</p>
@@ -14,6 +14,7 @@ import { Animal } from './animal.model';
     </ul>
     `
 })
+// Don't keep old code in the divs silly - you confused the "clickedAnimal" variable
 
 export class AnimalsListComponent {
   @Input() childAnimalList: Animal[];
