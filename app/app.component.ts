@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 // import { AnimalsListComponent } from './animals-list.component';
 import { Animal } from './animal.model';
 
@@ -7,7 +7,7 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <h1>Zoo is Ready!</h1>
-    <h3>{{currentFocus}}</h3>
+    <h3>{{currentAnimalList}}</h3>
     <hr>
     <animals-list [childAnimalList]="masterAnimalsList" (clickSender)="editAnimal($event)"></animals-list>
     <edit-animal [childSelectedAnimal]="selectedAnimal" (doneButtonClickedSender)="finishedEditing()"></edit-animal>
@@ -35,15 +35,15 @@ export class AppComponent {
     // new Animal("Black-Capped Chickadee", "Rooster", 2, "Omnivore", "The Mountains", 5, "female", "sunflower seeds", "people"),
   ];
 
+  addAnimal(newAnimalFromChild: Animal){
+    this.masterAnimalsList.push(newAnimalFromChild);
+  }
+
   editAnimal(clickedAnimal){
     this.selectedAnimal = clickedAnimal;
   }
 
   finishedEditing(){
     this.selectedAnimal = null;
-  }
-
-  addAnimal(newAnimalFromChild: Animal){
-    this.masterAnimalsList.push(newAnimalFromChild);
   }
 }

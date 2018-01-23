@@ -22,7 +22,7 @@ import { Animal } from './animal.model';
     <label>Zoo Location</label>
     <input #newZooLocation><br>
     <label># of Caretakers</label>
-    <input #newNumberOfCaretaker><br>
+    <input #newNumberOfCaretakersNeeded><br>
     <label>Sex</label>
     <input #newSex><br>
     <label>Like</label>
@@ -37,7 +37,9 @@ import { Animal } from './animal.model';
 export class NewAnimalComponent {
 @Output() newAnimalSender = new EventEmitter();
 
-  submitForm(species: string, name: string, age: number, diet: string, zooLocation: string, numberOfCaretakersNeeded: number, sex: string, like: string, dislike: string) {
+  submitForm(name: string, species: string, age: number, diet: string, zooLocation: string, numberOfCaretakersNeeded: number, sex: string, like: string, dislike: string) {
     var newAnimaltoAdd: Animal = new Animal(name, species, age, diet, zooLocation, numberOfCaretakersNeeded, sex, like, dislike);
+    console.log(newAnimaltoAdd);
+    this.newAnimalSender.emit(newAnimaltoAdd);
   }
 }
