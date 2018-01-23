@@ -24,7 +24,7 @@ export class AppComponent {
     new Animal("Pomeranian", "Ameribo Vespoochi", 2, "Carnivore", "Canine Carnival", 5, "male", "food", "loud noises"),
     new Animal("European Central Boar", "Piggi Longsmockings", 1, "Omnivore", "The Boar Moors", 5, "female", "food", "people"),
     new Animal("Siberian Chipmunk", "Radimir Putin", 3, "Omnivore", "Rodent Roundabout", 5, "male", "food", "people"),
-    // new Animal("Holstein Friesian Cattle", "Joan Henrietta", 1, "Herbivore", "Farmhand Farmy's Fun Farm", 5, "female", "food", "people"),
+    new Animal("Holstein Friesian Cattle", "Joan Henrietta", 1, "Herbivore", "Farmhand Farmy's Fun Farm", 5, "female", "food", "people"),
     // new Animal("Amur Tiger", "El Tigre, El Mejor Tigre", 7, "Carnivore", "Feline Festivale", 5, "male", "food", "people"),
     // new Animal("Dwarf Hotot", "Empress Maria Theresa the Hopsburg", 3,  "Herbivore", "Rodent Roundabout", 5, "female", "food", "people"),
     // new Animal("Komodo Dragon", "Elizabeth", 12, "Carnivore", "Danger Zone", 5, "female", "food", "people"),

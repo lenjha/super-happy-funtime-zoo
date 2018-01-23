@@ -6,9 +6,11 @@ import { Animal } from './animal.model';
     template: `
     <ul>
       <div *ngFor="let currentAnimal of childAnimalList" (click)="animalClicked(currentAnimal)">
-      <h3>"{{currentAnimal.name}}" the {{currentAnimal.species}}</h3>
+      <h4>"{{currentAnimal.name}}" the {{currentAnimal.species}}</h4>
       <h5>{{currentAnimal.zooLocation}}</h5>
-      <button (click)="editButtonClicked(currentAnimal)"> Edit!</button></div>
+      <p>{{currentAnimal.age}} years old, {{currentAnimal.diet}} requiring {{currentAnimal.numberOfCaretakersNeeded}} caretaker(s)</p>
+      <button (click)="editButtonClicked(currentAnimal)">Edit!</button> <hr>
+      </div>
     </ul>
     `
 })
@@ -21,9 +23,10 @@ export class AnimalsListComponent {
     this.clickSender.emit(animalToEdit);
   }
 
-  animalClicked(clickedAnimal: Animal){
-    console.log(clickedAnimal);
-  }
+  // animalClicked(clickedAnimal: Animal){
+  //   console.log(clickedAnimal);
+  //   this.clickSender.emit(animalToEdit);
+  // }
 
   dietColor(currentAnimal){
     if (currentAnimal.diet === "Carnivore"){
