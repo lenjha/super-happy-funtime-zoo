@@ -1,4 +1,4 @@
-[ ]  Able to log a new animal by submitting a form containing...
+[X]  Able to log a new animal by submitting a form containing...
         Species:
         Name:
         Age:
@@ -16,6 +16,8 @@
 [X]  Click an animal to edit its name, age, or caretakers
 
 [X] Uses a model to organize data
+
+
 README.md
 
 
